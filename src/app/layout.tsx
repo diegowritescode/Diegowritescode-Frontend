@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     "desarrollo de software",
     "entrevistas técnicas",
   ],
-  authors: [{ name: "Diego" }],
+  authors: [{ name: "Diego Andrés Ramírez Mejía" }],
+  creator: "Diego Andrés Ramírez Mejía",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },

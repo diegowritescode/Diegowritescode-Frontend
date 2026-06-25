@@ -13,9 +13,12 @@ import Link from "next/link";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
+import { site } from "@/lib/site";
 
 const LEGAL = [
   { label: "Privacidad", href: "/privacidad" },
@@ -24,24 +27,11 @@ const LEGAL = [
 ];
 
 const SOCIALS = [
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/Diegowritescode",
-    icon: FacebookRoundedIcon,
-    ready: true,
-  },
-  {
-    label: "YouTube (próximamente)",
-    href: "#contacto",
-    icon: YouTubeIcon,
-    ready: false,
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/diegowritescode",
-    icon: GitHubIcon,
-    ready: true,
-  },
+  { label: "Facebook", href: site.facebook, icon: FacebookRoundedIcon, ready: true },
+  { label: "YouTube (próximamente)", href: "#contacto", icon: YouTubeIcon, ready: false },
+  { label: "LinkedIn", href: site.linkedin, icon: LinkedInIcon, ready: true },
+  { label: "GitHub", href: site.github, icon: GitHubIcon, ready: true },
+  { label: "Correo", href: `mailto:${site.contactEmail}`, icon: EmailRoundedIcon, ready: false },
 ];
 
 export default function Footer() {
@@ -68,7 +58,7 @@ export default function Footer() {
                 size="large"
                 variant="contained"
                 startIcon={<FacebookRoundedIcon />}
-                href="https://www.facebook.com/Diegowritescode"
+                href={site.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
               >
