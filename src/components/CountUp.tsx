@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useInView, useMotionValue, useSpring } from "motion/react";
+import { useInView, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 
 /**
  * Cuenta desde 0 hasta `value` cuando el elemento entra en pantalla.
@@ -18,6 +18,7 @@ export default function CountUp({
   duration?: number;
 }) {
   const ref = React.useRef<HTMLSpanElement>(null);
+  const reduce = useReducedMotion();
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, {
@@ -27,8 +28,13 @@ export default function CountUp({
   const [display, setDisplay] = React.useState(0);
 
   React.useEffect(() => {
-    if (inView) motionValue.set(value);
-  }, [inView, value, motionValue]);
+    if (!inView) return;
+    if (reduce) {
+      setDisplay(value);
+      return;
+    }
+    motionValue.set(value);
+  }, [inView, value, motionValue, reduce]);
 
   React.useEffect(() => {
     const unsub = spring.on("change", (latest) => {

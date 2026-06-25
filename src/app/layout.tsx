@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { GeistSans } from "geist/font/sans";
 import Providers from "@/components/Providers";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 const SITE_URL = "https://diegowritescode.deviego.xyz";
@@ -54,7 +55,10 @@ export default function RootLayout({
     <html lang="es" className={GeistSans.className}>
       <body>
         <AppRouterCacheProvider options={{ key: "mui" }}>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <CookieBanner />
+          </Providers>
         </AppRouterCacheProvider>
       </body>
     </html>

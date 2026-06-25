@@ -20,6 +20,7 @@ import Logo from "./Logo";
 
 const NAV = [
   { label: "Sobre mí", href: "/#sobre-mi" },
+  { label: "Proyectos", href: "/#proyectos" },
   { label: "La serie", href: "/#la-serie" },
   { label: "Contacto", href: "/#contacto" },
 ];

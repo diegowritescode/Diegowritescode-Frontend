@@ -1,9 +1,11 @@
 "use client";
 
 import * as React from "react";
+import { useReducedMotion } from "motion/react";
 
 /**
  * Escribe y borra frases en bucle, estilo terminal.
+ * Si el usuario prefiere movimiento reducido, muestra la primera frase fija.
  */
 export default function Typewriter({
   phrases,
@@ -16,11 +18,13 @@ export default function Typewriter({
   deletingSpeed?: number;
   pause?: number;
 }) {
+  const reduce = useReducedMotion();
   const [index, setIndex] = React.useState(0);
   const [text, setText] = React.useState("");
   const [deleting, setDeleting] = React.useState(false);
 
   React.useEffect(() => {
+    if (reduce) return;
     const current = phrases[index % phrases.length];
 
     if (!deleting && text === current) {
@@ -42,7 +46,7 @@ export default function Typewriter({
       deleting ? deletingSpeed : typingSpeed
     );
     return () => clearTimeout(t);
-  }, [text, deleting, index, phrases, typingSpeed, deletingSpeed, pause]);
+  }, [text, deleting, index, phrases, typingSpeed, deletingSpeed, pause, reduce]);
 
-  return <span>{text}</span>;
+  return <span>{reduce ? phrases[0] : text}</span>;
 }
