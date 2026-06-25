@@ -19,9 +19,9 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Logo from "./Logo";
 
 const NAV = [
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "La serie", href: "#la-serie" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Sobre mí", href: "/#sobre-mi" },
+  { label: "La serie", href: "/#la-serie" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 export default function Header() {
@@ -49,7 +49,7 @@ export default function Header() {
         <Toolbar disableGutters sx={{ minHeight: { xs: 64, md: 72 } }}>
           <Box
             component="a"
-            href="#top"
+            href="/"
             sx={{ display: "flex", alignItems: "center", gap: 1.2, mr: "auto" }}
           >
             <Logo size={30} />
@@ -81,7 +81,7 @@ export default function Header() {
             <Button
               variant="contained"
               startIcon={<TerminalRoundedIcon />}
-              href="#contacto"
+              href="/#contacto"
               sx={{ ml: 1 }}
             >
               Sígueme
@@ -118,7 +118,7 @@ export default function Header() {
           ))}
         </List>
         <Box sx={{ px: 2, pt: 1 }}>
-          <Button fullWidth variant="contained" href="#contacto" onClick={() => setOpen(false)}>
+          <Button fullWidth variant="contained" href="/#contacto" onClick={() => setOpen(false)}>
             Sígueme
           </Button>
         </Box>

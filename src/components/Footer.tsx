@@ -8,12 +8,20 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
+import MuiLink from "@mui/material/Link";
+import Link from "next/link";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
+
+const LEGAL = [
+  { label: "Privacidad", href: "/privacidad" },
+  { label: "Términos", href: "/terminos" },
+  { label: "Cookies", href: "/cookies" },
+];
 
 const SOCIALS = [
   {
@@ -70,7 +78,7 @@ export default function Footer() {
                 size="large"
                 variant="outlined"
                 startIcon={<NotificationsActiveRoundedIcon />}
-                href="#top"
+                href="/"
               >
                 Avísame del canal
               </Button>
@@ -93,6 +101,30 @@ export default function Footer() {
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
                 © {new Date().getFullYear()} Diegowritescode. Hecho con código y sin filtros.
               </Typography>
+            </Stack>
+
+            <Stack
+              direction="row"
+              spacing={2.5}
+              flexWrap="wrap"
+              justifyContent="center"
+              useFlexGap
+            >
+              {LEGAL.map((l) => (
+                <MuiLink
+                  key={l.href}
+                  component={Link}
+                  href={l.href}
+                  underline="none"
+                  variant="body2"
+                  sx={{
+                    color: "text.secondary",
+                    "&:hover": { color: "primary.light" },
+                  }}
+                >
+                  {l.label}
+                </MuiLink>
+              ))}
             </Stack>
 
             <Stack direction="row" spacing={0.5}>
