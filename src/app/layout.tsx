@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "entrevistas técnicas",
   ],
   authors: [{ name: "Diego" }],
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
