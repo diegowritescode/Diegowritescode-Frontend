@@ -15,9 +15,9 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import NotificationsActiveRoundedIcon from "@mui/icons-material/NotificationsActiveRounded";
 import Logo from "./Logo";
 import Reveal from "./Reveal";
+import SubscribeForm from "./SubscribeForm";
 import { site } from "@/lib/site";
 
 const LEGAL = [
@@ -49,28 +49,28 @@ export default function Footer() {
               </Box>
             </Typography>
             <Typography variant="body1" sx={{ color: "text.secondary", mt: 2.5, maxWidth: 560, mx: "auto", fontSize: { md: 18 } }}>
-              Sígueme en redes para no perderte el lanzamiento del canal y los retos
-              diarios. Cero relleno, puro contenido útil.
+              Déjame tu correo y serás de los primeros en enterarte del lanzamiento del
+              canal y los retos diarios. Cero spam, cero relleno.
             </Typography>
 
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="center" sx={{ mt: 4 }}>
+            <Box sx={{ mt: 4 }}>
+              <SubscribeForm />
+            </Box>
+
+            <Stack direction="row" spacing={1.2} justifyContent="center" alignItems="center" sx={{ mt: 3 }}>
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                o sígueme ya en
+              </Typography>
               <Button
-                size="large"
-                variant="contained"
+                size="small"
+                variant="text"
                 startIcon={<FacebookRoundedIcon />}
                 href={site.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
+                sx={{ color: "primary.light" }}
               >
-                Sígueme en Facebook
-              </Button>
-              <Button
-                size="large"
-                variant="outlined"
-                startIcon={<NotificationsActiveRoundedIcon />}
-                href="/"
-              >
-                Avísame del canal
+                Facebook
               </Button>
             </Stack>
           </Reveal>

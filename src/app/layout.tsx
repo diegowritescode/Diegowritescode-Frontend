@@ -26,7 +26,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Diego Andrés Ramírez Mejía" }],
   creator: "Diego Andrés Ramírez Mejía",
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
