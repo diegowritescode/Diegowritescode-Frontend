@@ -5,6 +5,7 @@ import About from "@/components/About";
 import TechMarquee from "@/components/TechMarquee";
 import Projects from "@/components/Projects";
 import Features from "@/components/Features";
+import Audience from "@/components/Audience";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import JsonLd from "@/components/JsonLd";
@@ -22,6 +23,7 @@ export default function Home() {
         <TechMarquee />
         <Projects />
         <Features />
+        <Audience />
       </main>
       <Footer />
     </>
