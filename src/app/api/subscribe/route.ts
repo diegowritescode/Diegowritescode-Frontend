@@ -28,10 +28,17 @@ export async function POST(request: Request) {
     );
   }
 
+  // Secreto compartido opcional: si está definido, lo enviamos como header
+  // para que n8n pueda rechazar peticiones que no vengan de este frontend.
+  const secret = process.env.N8N_SUBSCRIBE_WEBHOOK_SECRET;
+
   try {
     const res = await fetch(webhook, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(secret ? { "X-Webhook-Secret": secret } : {}),
+      },
       body: JSON.stringify({
         email,
         source: "diegowritescode.deviego.xyz",
